@@ -8,7 +8,4 @@ public class EnsembleDeCellules {
 		tableauDeuxCellules = new Cellule[l][i];
 			
 	}
-	add(int l, int i, NonTerminal n){
-		tableauxDeuxCellules[l][i]= 		
-	}
 }

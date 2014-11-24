@@ -1,5 +1,6 @@
+package chomsky.cellule;
 
-public class ChomskyGrammar {
+public class Cellule {
 
 	/**
 	 * @param args

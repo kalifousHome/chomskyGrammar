@@ -7,11 +7,24 @@ public class Alphabet {
 	/**
 	 * @param args
 	 */
-	Set<Symbole> symboles;
+	private Set<Symbole> symboles;
 	
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-
+	public Alphabet(Set<Symbole> set ) {
+		symboles = set ;
 	}
-
+	protected void add(Symbole s){
+		
+		symboles.add(s);
+	}
+	protected Set<Symbole> getSet(){
+		return symboles;
+	}
+	protected Symbole getSymbole( char s){
+		
+		for (Symbole symboleToReturn :  symboles){
+			if( s == symboleToReturn.getChar())
+				return symboleToReturn;
+		}		
+		return null;
+	}
 }

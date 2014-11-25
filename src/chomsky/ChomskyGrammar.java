@@ -42,20 +42,25 @@ public class ChomskyGrammar {
 		int n = word.length();
 		EnsembleDeCellules cells = new EnsembleDeCellules(n, n);
 		
+		/*Cette première boucle est testée et fonctionne*/
 		for(int i = 0 ; i < n ; i++)
 			for(NonTerminal X : this.nonTerminaux)
 				if(this.productions.contains(X, a[i]))
-					cells.add(1, i, X);
+					cells.add(0, i, X);
 		
+		/*Il y a des problèmes de décalage d'indice par rapport au sujet*/
 		for(int l = 1 ; l < n ; l++){
-			for(int i = 0 ; i < n-l-1 ; i++){
+			for(int i = 0 ; i < n-l+1 ; i++){
 				for(int m = 0 ; m < l-1 ; m++){
-					
+
 					for(NonTerminal X : this.nonTerminaux){
 						for(NonTerminal Y : cells.getNonTerminaux(m, i)){
 							for(NonTerminal Z : cells.getNonTerminaux(l-m, i+m)){
-								if(this.productions.contains(X, Y, Z))
+								
+								if(this.productions.contains(X, Y, Z)){
 									cells.add(l, i, X);
+								}
+								
 							}
 						}
 					}
@@ -64,7 +69,7 @@ public class ChomskyGrammar {
 			}
 		}
 			
-		return cells.contains(n-1, 1, S);
+		return cells.contains(n-1, 0, S);
 	}
 	
 }

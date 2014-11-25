@@ -35,7 +35,7 @@ public class NonTerminal {
 	}
 	
 	public String toString(){
-		return "not implemented";
+		return this.name;
 	}
 
 }

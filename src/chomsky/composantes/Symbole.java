@@ -7,7 +7,7 @@ public class Symbole {
 	 * @param name 
 	 **/
 	
-	Symbole(char name){
+	public Symbole(char name){
 		this.name = name;
 	}
 	public char getChar(){
@@ -16,6 +16,13 @@ public class Symbole {
 	public String toString()
 	{
 		return ""+name;
+	}
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + name;
+		return result;
 	}
 	@Override
 	public boolean equals(Object obj) {

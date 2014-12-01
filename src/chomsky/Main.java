@@ -42,7 +42,7 @@ public class Main {
 		productions.add(B, B, B);
 		productions.add(B, C, A);
 		
-		productions.add(C, c);
+		productions.add(C, b);
 		productions.add(C, B, A);
 		productions.add(C, A, A);
 		

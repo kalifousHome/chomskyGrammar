@@ -15,13 +15,13 @@ public class Cellule {
 	public Cellule() {
 		nonTerminaux = new HashSet<NonTerminal>();
 	}
-	protected void add(NonTerminal n){
+	public void add(NonTerminal n){
 		nonTerminaux.add(n);
 	}
-	protected boolean contains(NonTerminal n){
+	public boolean contains(NonTerminal n){
 		return nonTerminaux.contains(n);
 	}
-	protected Set<NonTerminal> getNonTerminaux(){
+	public Set<NonTerminal> getNonTerminaux(){
 		return this.nonTerminaux;
 	}
 }

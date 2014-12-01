@@ -24,4 +24,7 @@ public class Cellule {
 	protected Set<NonTerminal> getNonTerminaux(){
 		return this.nonTerminaux;
 	}
+	public void addAll(Set<NonTerminal> n) {
+		nonTerminaux.addAll(n);		
+	}
 }

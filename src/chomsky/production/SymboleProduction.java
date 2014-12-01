@@ -48,7 +48,7 @@ public class SymboleProduction implements Production{
 	}
 	
 	public String toString(){
-		return "not implemented";
+		return "-> "+this.symbole.toString();
 	}
 	
 }

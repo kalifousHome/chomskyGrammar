@@ -11,59 +11,89 @@ import chomsky.composantes.Symbole;
 
 public class Productions {
 
-	protected  Map<NonTerminal, Set<Production>> productions;
+	protected  Map<Production, Set<NonTerminal>> productions;
 	
 	public Productions(){
-		this.productions = new HashMap<NonTerminal, Set<Production>>();
+		this.productions = new HashMap<Production, Set<NonTerminal>>();
 	}
 	
 
-	public boolean contains(NonTerminal t, Symbole symbole){
-		for(Production p : this.productions.get(t)){
-			if(p.contains(symbole))
+	public boolean contains(NonTerminal terminal, Symbole symbole){
+		for(NonTerminal t : this.productions.get(new SymboleProduction(symbole))){
+			if(t.equals(terminal))
 				return true;
 		}
 		return false;
 	}
 		
-	public boolean contains(NonTerminal t, NonTerminal t1, NonTerminal t2){
-		for(Production p : this.productions.get(t)){
-			if(p.contains(t1,t2))
+	public boolean contains(NonTerminal terminal, NonTerminal t1, NonTerminal t2){
+		for(NonTerminal t : this.productions.get(new NonTerminalProduction(t1,t2))){
+			if(t.equals(terminal))
 				return true;
 		}
 		return false;
 	}	
+	
+
+	public Set<NonTerminal> get(Symbole symbole){
+		return this.productions.get(new SymboleProduction(symbole));
+	}
+
+	public Set<NonTerminal> get(Set<Symbole> symboles) {
+		Set<NonTerminal> tmp = new HashSet<NonTerminal>();
+		
+		for(Symbole s : symboles)
+				tmp.addAll(this.get(s));
+		
+		return tmp;
+	}
+		
+	public Set<NonTerminal> get(NonTerminal t1, NonTerminal t2){
+		return this.productions.get(new NonTerminalProduction(t1,t2));
+	}	
+
+	public Set<NonTerminal> get(Set<NonTerminal> nonTerminaux, Set<NonTerminal> nonTerminaux2) {
+		Set<NonTerminal> tmp = new HashSet<NonTerminal>();
+		
+		for(NonTerminal X : nonTerminaux)
+			for(NonTerminal Y : nonTerminaux2)
+				tmp.addAll(this.get(X,Y));
+		
+		return tmp;
+	}
 
 	public void add(NonTerminal t, Symbole symbole){
-		Set<Production>lastSet = this.productions.get(t);
+		Production tmp = new SymboleProduction(symbole);
+		Set<NonTerminal>lastSet = this.productions.get(tmp);
 		
 		if(lastSet == null){
-			lastSet = new HashSet<Production>();
+			lastSet = new HashSet<NonTerminal>();
 			
-			lastSet.add(new SymboleProduction(symbole));
-			this.productions.put(t, lastSet);
+			lastSet.add(t);
+			this.productions.put(tmp, lastSet);
 		} else {
-			lastSet.add(new SymboleProduction(symbole));
-			this.productions.put(t, lastSet);
+			lastSet.add(t);
+			this.productions.put(tmp, lastSet);
 		}
 	}
 		
 	public void add(NonTerminal t, NonTerminal t1, NonTerminal t2){
-		Set<Production>lastSet = this.productions.get(t);
+		Production tmp = new NonTerminalProduction(t1,t2);
+		Set<NonTerminal>lastSet = this.productions.get(tmp);
 		
 		if(lastSet == null){
-			lastSet = new HashSet<Production>();
+			lastSet = new HashSet<NonTerminal>();
 			
-			lastSet.add(new NonTerminalProduction(t1,t2));
-			this.productions.put(t, lastSet);
+			lastSet.add(t);
+			this.productions.put(tmp, lastSet);
 		} else {
-			lastSet.add(new NonTerminalProduction(t1,t2));
-			this.productions.put(t, lastSet);
+			lastSet.add(t);
+			this.productions.put(tmp, lastSet);
 		}
 	}
 	
 	public String toString(){
-		return "Not implemented";
+		return this.productions.toString();
 	}
 	
 }

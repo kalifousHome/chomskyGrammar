@@ -28,7 +28,7 @@ public class EnsembleDeCellules {
 	public boolean contains(int l, int i, NonTerminal n) {
 		return tableauDeuxCellules[l][i].contains(n);
 	}
-
+	
 	public Set<NonTerminal> getNonTerminaux(int l, int i) {
 		return this.tableauDeuxCellules[l][i].getNonTerminaux();
 	}

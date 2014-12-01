@@ -39,44 +39,7 @@ public class ChomskyGrammar {
 	}
 	
 	
-	public boolean acceptAvecDecalage(String word){
-		Symbole[] a = stringToSymbole(word);
-		int n = word.length();
-		EnsembleDeCellules cells = new EnsembleDeCellules(n, n);
-		
-		/*Cette première boucle est testée et fonctionne*/
-		for(int i = 0 ; i < n ; i++)
-			for(NonTerminal X : this.nonTerminaux)
-				if(this.productions.contains(X, a[i]))
-					cells.add(0, i, X);
-		
-		/*Il y a des problèmes de décalage d'indice par rapport au sujet*/
-		for(int l = 1 ; l < n ; l++){
-			for(int i = 0 ; i < n-l+1 ; i++){
-				for(int m = 0 ; m < l-1 ; m++){
-
-					for(NonTerminal X : this.nonTerminaux){
-						for(NonTerminal Y : cells.getNonTerminaux(m, i)){
-							for(NonTerminal Z : cells.getNonTerminaux(l-m, i+m)){
-								
-								if(this.productions.contains(X, Y, Z)){
-									cells.add(l, i, X);
-								}
-								
-							}
-						}
-					}
-					
-				}
-			}
-		}
-			
-		return cells.contains(n-1, 0, S);
-	}
-	
-	
-	
-	
+    /*TODO : changer les indices dans Ens.Cell. au lieu de l'algo*/ 	
 	public boolean accept(String word){
 		Symbole[] a = stringToSymbole(word);
 		int n = word.length();

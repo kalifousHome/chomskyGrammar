@@ -14,12 +14,10 @@ public class Main {
 		
 		Symbole a = new Symbole('a');
 		Symbole b = new Symbole('b');
-		Symbole c = new Symbole('c');
 		
 		Set<Symbole> set = new HashSet<Symbole>();
 		set.add(a);
-		set.add(b);
-		set.add(c);		
+		set.add(b);	
 		Alphabet alpha = new Alphabet(set);
 		
 		NonTerminal S = new NonTerminal("S");
@@ -52,7 +50,7 @@ public class Main {
 		
 		ChomskyGrammar cg = new ChomskyGrammar(alpha, productions, nonTerminaux, S);
 		
-		System.out.println(cg.accept("ab"));
+		System.out.println(cg.accept("baba"));
 	}
 
 }

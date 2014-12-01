@@ -56,7 +56,7 @@ public class NonTerminalProduction implements Production{
 	}
 	
 	public String toString(){
-		return "not implemented";
+		return "-> "+t1.toString()+t2.toString();
 	}
 
 }

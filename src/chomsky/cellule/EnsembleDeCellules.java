@@ -18,8 +18,11 @@ public class EnsembleDeCellules {
 	}
 
 	public void add(int l, int i, NonTerminal n) {
-		tableauDeuxCellules[l][i].add(n);
+		tableauDeuxCellules[l][i].add(n); 
+	}
 
+	public void addAll(int l, int i, Set<NonTerminal> n) {
+		tableauDeuxCellules[l][i].addAll(n); 
 	}
 
 	public boolean contains(int l, int i, NonTerminal n) {

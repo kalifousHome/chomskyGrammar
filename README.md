@@ -6,7 +6,8 @@ etat:
   commentaires : none
   main : fonctionnel?
   
-TODO:
+todo:
 -commentaires :
 -tests :
-  ->classe :ChomskyGrammar && Productions (là ou il y a pleins d'exceptions à catcher + 1e erreur )
+  ->classe :ChomskyGrammar &&
+            Productions (là ou il y a pleins d'exceptions à catcher + 1e erreur )

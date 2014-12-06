@@ -2,7 +2,7 @@
 CHOMSKY GRAMMAR -
 -----------------
 etat: 
-  couverture en tests : +-80%
+  couverture en tests : +-80%,
   commentaires : none
   main : fonctionnel?
   

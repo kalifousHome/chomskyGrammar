@@ -17,19 +17,30 @@ public class Productions {
 		this.productions = new HashMap<Production, Set<NonTerminal>>();
 	}
 	
-
-	public boolean contains(NonTerminal terminal, Symbole symbole){
-		for(NonTerminal t : this.productions.get(new SymboleProduction(symbole))){
-			if(t.equals(terminal))
-				return true;
+	/**/ 
+	public boolean contains(NonTerminal terminal, Symbole symbole) {
+				
+		try{
+			for(NonTerminal t : this.productions.get(new SymboleProduction(symbole))){
+				if(t != null){		
+					if(t.equals(terminal))
+						return true;
+				}
+				else if(t==null)
+					return false;
+			}
+		}catch(NullPointerException e){
 		}
 		return false;
 	}
 		
 	public boolean contains(NonTerminal terminal, NonTerminal t1, NonTerminal t2){
-		for(NonTerminal t : this.productions.get(new NonTerminalProduction(t1,t2))){
-			if(t.equals(terminal))
-				return true;
+		try{
+			for(NonTerminal t : this.productions.get(new NonTerminalProduction(t1,t2))){
+				if(t.equals(terminal))
+					return true;
+			}
+		}catch(NullPointerException e){
 		}
 		return false;
 	}	

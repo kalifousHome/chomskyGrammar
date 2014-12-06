@@ -39,10 +39,7 @@ public class SymboleProduction implements Production{
 		if (getClass() != obj.getClass())
 			return false;
 		SymboleProduction other = (SymboleProduction) obj;
-		if (symbole == null) {
-			if (other.symbole != null)
-				return false;
-		} else if (!symbole.equals(other.symbole))
+		 if (!symbole.equals(other.symbole))
 			return false;
 		return true;
 	}

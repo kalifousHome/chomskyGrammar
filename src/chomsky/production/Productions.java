@@ -92,8 +92,4 @@ public class Productions {
 		}
 	}
 	
-	public String toString(){
-		return this.productions.toString();
-	}
-	
 }

@@ -21,6 +21,9 @@ public class Cellule {
 	public boolean contains(NonTerminal n){
 		return nonTerminaux.contains(n);
 	}
+	public boolean containsAll(Set<NonTerminal> n){
+		return nonTerminaux.containsAll(n);
+	}
 	public Set<NonTerminal> getNonTerminaux(){
 		return this.nonTerminaux;
 	}

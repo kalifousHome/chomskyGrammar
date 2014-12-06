@@ -28,8 +28,12 @@ public class EnsembleDeCellules {
 	public boolean contains(int l, int i, NonTerminal n) {
 		return tableauDeuxCellules[l][i].contains(n);
 	}
+	public boolean containsAll(int l, int i, Set<NonTerminal> n) {
+		return tableauDeuxCellules[l][i].containsAll(n);
+	}
 	
 	public Set<NonTerminal> getNonTerminaux(int l, int i) {
 		return this.tableauDeuxCellules[l][i].getNonTerminaux();
 	}
+
 }

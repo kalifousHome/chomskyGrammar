@@ -42,15 +42,9 @@ public class NonTerminalProduction implements Production{
 		if (getClass() != obj.getClass())
 			return false;
 		NonTerminalProduction other = (NonTerminalProduction) obj;
-		if (t1 == null) {
-			if (other.t1 != null)
-				return false;
-		} else if (!t1.equals(other.t1))
+		if (!t1.equals(other.t1))
 			return false;
-		if (t2 == null) {
-			if (other.t2 != null)
-				return false;
-		} else if (!t2.equals(other.t2))
+		else if (!t2.equals(other.t2))
 			return false;
 		return true;
 	}

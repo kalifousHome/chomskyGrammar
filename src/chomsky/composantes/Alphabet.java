@@ -27,4 +27,8 @@ public class Alphabet {
 		}		
 		return null;
 	}
+	public boolean contains(Symbole s){
+		
+		return symboles.contains(s);
+	}	
 }

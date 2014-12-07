@@ -4,8 +4,8 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
-import chomsky.composantes.NonTerminal;
-import chomsky.composantes.Symbole;
+import chomsky.components.NonTerminal;
+import chomsky.components.Symbol;
 import chomsky.production.NonTerminalProduction;
 
 public class NonTerminalProductionTest {
@@ -31,7 +31,7 @@ public class NonTerminalProductionTest {
 		assertFalse(n.contains(n2,n1));
 		assertFalse(n.contains(n1,null));
 		assertFalse(n.contains(null,n2));
-		assertFalse(n.contains(new Symbole('s')));
+		assertFalse(n.contains(new Symbol('s')));
 			
 		
 	}@Test

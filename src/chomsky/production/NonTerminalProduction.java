@@ -1,7 +1,7 @@
 package chomsky.production;
 
-import chomsky.composantes.NonTerminal;
-import chomsky.composantes.Symbole;
+import chomsky.components.NonTerminal;
+import chomsky.components.Symbol;
 
 
 public class NonTerminalProduction implements Production{
@@ -16,15 +16,18 @@ public class NonTerminalProduction implements Production{
 		this.t2 = t2;
 	}
 	
-	public boolean contains(Symbole symbole){
+	public boolean contains(Symbol symbole){
 		return false;
 	}
 	
 	public boolean contains(NonTerminal t1, NonTerminal t2){
 		return this.t1.equals(t1) && this.t2.equals(t2);
 	}
+	
+	public String toString(){
+		return "-> "+t1.toString()+t2.toString();
+	}
 
-	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
@@ -33,7 +36,6 @@ public class NonTerminalProduction implements Production{
 		return result;
 	}
 
-	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
 			return true;
@@ -47,10 +49,6 @@ public class NonTerminalProduction implements Production{
 		else if (!t2.equals(other.t2))
 			return false;
 		return true;
-	}
-	
-	public String toString(){
-		return "-> "+t1.toString()+t2.toString();
 	}
 
 }

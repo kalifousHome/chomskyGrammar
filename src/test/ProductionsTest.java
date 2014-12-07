@@ -1,17 +1,16 @@
 package test;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 
 import java.util.HashSet;
 import java.util.Set;
 
 import org.junit.Test;
 
-import chomsky.composantes.NonTerminal;
-import chomsky.composantes.Symbole;
-import chomsky.production.NonTerminalProduction;
+import chomsky.components.NonTerminal;
+import chomsky.components.Symbol;
 import chomsky.production.Productions;
-import chomsky.production.SymboleProduction;
 
 public class ProductionsTest {
 
@@ -21,8 +20,8 @@ public class ProductionsTest {
 		/* test 1 get(Symbole symbole) */
 		Productions p = new Productions();
 
-		Symbole s1 = new Symbole('s');
-		Symbole s2 = new Symbole('c');
+		Symbol s1 = new Symbol('s');
+		Symbol s2 = new Symbol('c');
 
 		Set<NonTerminal> nt1 = new HashSet<NonTerminal>();
 
@@ -49,7 +48,7 @@ public class ProductionsTest {
 		p.add(n3, s2);
 		p.add(n4, s2);
 
-		Set<Symbole> sb = new HashSet<Symbole>();
+		Set<Symbol> sb = new HashSet<Symbol>();
 		sb.add(s1);
 		sb.add(s2);
 
@@ -68,7 +67,7 @@ public class ProductionsTest {
 		/* test 1 get(Symbole symbole) */
 		Productions p = new Productions();
 
-		Symbole s1 = new Symbole('s');
+		Symbol s1 = new Symbol('s');
 		NonTerminal n1 = new NonTerminal("S");
 
 		assertFalse(p.contains(n1, s1));

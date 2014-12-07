@@ -5,8 +5,8 @@ import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
 
-import chomsky.composantes.NonTerminal;
-import chomsky.composantes.Symbole;
+import chomsky.components.NonTerminal;
+import chomsky.components.Symbol;
 
 
 public class Productions {
@@ -17,8 +17,7 @@ public class Productions {
 		this.productions = new HashMap<Production, Set<NonTerminal>>();
 	}
 	
-	/**/ 
-	public boolean contains(NonTerminal terminal, Symbole symbole) {
+	public boolean contains(NonTerminal terminal, Symbol symbole) {
 				
 		try{
 			for(NonTerminal t : this.productions.get(new SymboleProduction(symbole))){
@@ -46,14 +45,14 @@ public class Productions {
 	}	
 	
 
-	public Set<NonTerminal> get(Symbole symbole){
+	public Set<NonTerminal> get(Symbol symbole){
 		return this.productions.get(new SymboleProduction(symbole));
 	}
 
-	public Set<NonTerminal> get(Set<Symbole> symboles) {
+	public Set<NonTerminal> get(Set<Symbol> symboles) {
 		Set<NonTerminal> tmp = new HashSet<NonTerminal>();
 		
-		for(Symbole s : symboles)
+		for(Symbol s : symboles)
 				tmp.addAll(this.get(s));
 		
 		return tmp;
@@ -68,12 +67,13 @@ public class Productions {
 		
 		for(NonTerminal X : nonTerminaux)
 			for(NonTerminal Y : nonTerminaux2)
-				tmp.addAll(this.get(X,Y));
+				if(this.get(X,Y)!=null)
+					tmp.addAll(this.get(X,Y));
 		
 		return tmp;
 	}
 
-	public void add(NonTerminal t, Symbole symbole){
+	public void add(NonTerminal t, Symbol symbole){
 		Production tmp = new SymboleProduction(symbole);
 		Set<NonTerminal>lastSet = this.productions.get(tmp);
 		

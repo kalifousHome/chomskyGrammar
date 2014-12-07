@@ -1,28 +1,31 @@
 package chomsky.production;
 
-import chomsky.composantes.NonTerminal;
-import chomsky.composantes.Symbole;
+import chomsky.components.NonTerminal;
+import chomsky.components.Symbol;
 
 
 public class SymboleProduction implements Production{
 
-	protected Symbole symbole;
+	protected Symbol symbole;
 	
-	public SymboleProduction(Symbole symbole) throws IllegalArgumentException{
+	public SymboleProduction(Symbol symbole) throws IllegalArgumentException{
 		if(symbole==null)
 			throw(new IllegalArgumentException());
 		this.symbole = symbole;
 	}
 	
-	public boolean contains(Symbole symbole){
+	public boolean contains(Symbol symbole){
 		return this.symbole.equals(symbole);
 	}
 	
 	public boolean contains(NonTerminal t1, NonTerminal t2){
 		return false;
 	}
+	
+	public String toString(){
+		return "-> "+this.symbole.toString();
+	}
 
-	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
@@ -30,7 +33,6 @@ public class SymboleProduction implements Production{
 		return result;
 	}
 
-	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
 			return true;
@@ -42,10 +44,6 @@ public class SymboleProduction implements Production{
 		 if (!symbole.equals(other.symbole))
 			return false;
 		return true;
-	}
-	
-	public String toString(){
-		return "-> "+this.symbole.toString();
 	}
 	
 }

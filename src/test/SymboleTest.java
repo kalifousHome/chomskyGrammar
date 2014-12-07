@@ -4,8 +4,8 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
-import chomsky.composantes.NonTerminal;
-import chomsky.composantes.Symbole;
+import chomsky.components.NonTerminal;
+import chomsky.components.Symbol;
 
 public class SymboleTest {
 
@@ -13,7 +13,7 @@ public class SymboleTest {
 	public void getChar() {
 		char car1= 'a';
 		
-		Symbole s = new Symbole (car1);
+		Symbol s = new Symbol (car1);
 				
 		assertEquals(car1,s.getChar());
 	}
@@ -24,9 +24,9 @@ public class SymboleTest {
 		char car1= 'a';
 		char car2= 'b';
 
-		Symbole s1 = new Symbole (car1);
-		Symbole s12 = new Symbole (car1);
-		Symbole s2 = new Symbole (car2);
+		Symbol s1 = new Symbol (car1);
+		Symbol s12 = new Symbol (car1);
+		Symbol s2 = new Symbol (car2);
 		
 		assertEquals(s1,s1);
 		assertEquals(s1,s12);
@@ -39,7 +39,7 @@ public class SymboleTest {
 	
 		char car1= 'a';
 		
-		Symbole s1 = new Symbole (car1);
+		Symbol s1 = new Symbol (car1);
 		
 		assertEquals(s1.toString(),""+car1);
 		

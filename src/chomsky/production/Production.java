@@ -1,11 +1,11 @@
 package chomsky.production;
 
-import chomsky.composantes.NonTerminal;
-import chomsky.composantes.Symbole;
+import chomsky.components.NonTerminal;
+import chomsky.components.Symbol;
 
 public interface Production {
 
-	public  boolean contains(Symbole symbole);
+	public  boolean contains(Symbol symbole);
 		
 	public boolean contains(NonTerminal t1, NonTerminal t2);
 	

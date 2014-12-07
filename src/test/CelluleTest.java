@@ -7,8 +7,8 @@ import java.util.Set;
 
 import org.junit.Test;
 
-import chomsky.cellule.Cellule;
-import chomsky.composantes.NonTerminal;
+import chomsky.cellule.Cell;
+import chomsky.components.NonTerminal;
 
 public class CelluleTest {
 
@@ -17,7 +17,7 @@ public class CelluleTest {
 	public void contains() {
 		
 		NonTerminal n = new NonTerminal("Rene");
-		Cellule c = new Cellule();
+		Cell c = new Cell();
 		
 		assertFalse(c.contains(n));		
 		c.add(n);
@@ -38,7 +38,7 @@ public class CelluleTest {
 		set.add(b);
 		set.add(c);			
 		
-		Cellule cel = new Cellule();
+		Cell cel = new Cell();
 		cel.add(a);
 		cel.add(b);
 		cel.add(c);		

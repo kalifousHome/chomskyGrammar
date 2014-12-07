@@ -7,22 +7,22 @@ import java.util.Set;
 
 import org.junit.Test;
 
-import chomsky.composantes.Alphabet;
-import chomsky.composantes.Symbole;
+import chomsky.components.Alphabet;
+import chomsky.components.Symbol;
 
 public class AlphabetTest {
 
 	@Test
 	public void getSet() {
-		Symbole a = new Symbole('a');
-		Symbole b = new Symbole('b'); 
-		Set<Symbole> s = new HashSet<Symbole>();
+		Symbol a = new Symbol('a');
+		Symbol b = new Symbol('b'); 
+		Set<Symbol> s = new HashSet<Symbol>();
 		
 		s.add(a);
 		s.add(b);
 		
 		Alphabet  al= new Alphabet(s);
-		Set<Symbole> ret = al.getSet();
+		Set<Symbol> ret = al.getSet();
 		
 		assertTrue(s.containsAll(ret));
 		assertTrue(ret.containsAll(s));
@@ -31,8 +31,8 @@ public class AlphabetTest {
 	@Test
 	public void add() {
 		
-		Symbole s = new Symbole('a');
-		Alphabet  al= new Alphabet(new HashSet<Symbole>());
+		Symbol s = new Symbol('a');
+		Alphabet  al= new Alphabet(new HashSet<Symbol>());
 		
 		assertFalse( al.contains(s));
 		
@@ -45,8 +45,8 @@ public class AlphabetTest {
 		
 		char car1 = 'a';
 		char car2 = 'b';
-		Symbole s= new Symbole(car1);
-		Alphabet  al= new Alphabet(new HashSet<Symbole>());
+		Symbol s= new Symbol(car1);
+		Alphabet  al= new Alphabet(new HashSet<Symbol>());
 		
 		al.add(s);
 		

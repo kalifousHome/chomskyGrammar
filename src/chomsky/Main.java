@@ -3,19 +3,19 @@ package chomsky;
 import java.util.HashSet;
 import java.util.Set;
 
-import chomsky.composantes.Alphabet;
-import chomsky.composantes.NonTerminal;
-import chomsky.composantes.Symbole;
+import chomsky.components.Alphabet;
+import chomsky.components.NonTerminal;
+import chomsky.components.Symbol;
 import chomsky.production.Productions;
 
 public class Main {
 
 	public static void main(String[] args) {
 		
-		Symbole a = new Symbole('a');
-		Symbole b = new Symbole('b');
+		Symbol a = new Symbol('a');
+		Symbol b = new Symbol('b');
 		
-		Set<Symbole> set = new HashSet<Symbole>();
+		Set<Symbol> set = new HashSet<Symbol>();
 		set.add(a);
 		set.add(b);	
 		Alphabet alpha = new Alphabet(set);

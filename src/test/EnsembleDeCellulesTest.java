@@ -7,8 +7,8 @@ import java.util.Set;
 
 import org.junit.Test;
 
-import chomsky.cellule.EnsembleDeCellules;
-import chomsky.composantes.NonTerminal;
+import chomsky.cellule.CellArray;
+import chomsky.components.NonTerminal;
 
 public class EnsembleDeCellulesTest {
 
@@ -18,7 +18,7 @@ public class EnsembleDeCellulesTest {
 		
 		int i=1,l=1;
 		NonTerminal n = new NonTerminal("RENE");
-		EnsembleDeCellules e= new EnsembleDeCellules (l,  i);
+		CellArray e= new CellArray (l,  i);
 	
 		assertFalse(e.contains(0, 0, n));
 		e.add(l-1, i-1, n);
@@ -37,7 +37,7 @@ public class EnsembleDeCellulesTest {
 		set.add(b);
 		set.add(c);
 		
-		EnsembleDeCellules e= new EnsembleDeCellules (l,  i);
+		CellArray e= new CellArray (l,  i);
 	
 		assertFalse(e.containsAll(0, 0,set));
 		e.addAll(l-1, i-1, set);
@@ -56,7 +56,7 @@ public class EnsembleDeCellulesTest {
 		set.add(b);
 		set.add(c);
 		
-		EnsembleDeCellules e= new EnsembleDeCellules (l,  i);
+		CellArray e= new CellArray (l,  i);
 		e.addAll(l-1, i-1, set);
 		assertTrue(set.containsAll( e.getNonTerminaux(0, 0)));
 		

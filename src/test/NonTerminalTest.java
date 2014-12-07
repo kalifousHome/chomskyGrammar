@@ -4,8 +4,8 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
-import chomsky.composantes.NonTerminal;
-import chomsky.composantes.Symbole;
+import chomsky.components.NonTerminal;
+import chomsky.components.Symbol;
 
 public class NonTerminalTest {
 
@@ -26,7 +26,7 @@ public class NonTerminalTest {
 		NonTerminal n2 = new NonTerminal(name2);
 		NonTerminal n12 = new NonTerminal(name1);
 		NonTerminal n3 = new NonTerminal(name3);
-		Symbole s = new Symbole('s');
+		Symbol s = new Symbol('s');
 		
 		assertEquals(n1,n1);
 		assertEquals(n1,n12);

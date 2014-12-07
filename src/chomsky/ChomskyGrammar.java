@@ -2,10 +2,10 @@ package chomsky;
 
 import java.util.Set;
 
-import chomsky.cellule.EnsembleDeCellules;
-import chomsky.composantes.Alphabet;
-import chomsky.composantes.NonTerminal;
-import chomsky.composantes.Symbole;
+import chomsky.cellule.CellArray;
+import chomsky.components.Alphabet;
+import chomsky.components.NonTerminal;
+import chomsky.components.Symbol;
 import chomsky.production.Productions;
 
 public class ChomskyGrammar {
@@ -24,10 +24,10 @@ public class ChomskyGrammar {
 		this.S = S;
 	}
 	
-	protected Symbole[] stringToSymbole(String word){
+	protected Symbol[] stringToSymbole(String word){
 		int stringLength = word.length();
 		
-		Symbole[] symboles = new Symbole[stringLength];
+		Symbol[] symboles = new Symbol[stringLength];
 		
 		char[] letters = new char[stringLength];
 		word.getChars(0, stringLength, letters, 0);
@@ -41,9 +41,9 @@ public class ChomskyGrammar {
 	
     /*TODO : changer les indices dans Ens.Cell. au lieu de l'algo*/ 	
 	public boolean accept(String word){
-		Symbole[] a = stringToSymbole(word);
+		Symbol[] a = stringToSymbole(word);
 		int n = word.length();
-		EnsembleDeCellules cells = new EnsembleDeCellules(n+1, n+1);
+		CellArray cells = new CellArray(n+1, n+1);
 		
 		for(int i = 1 ; i <= n ; i++)
 			for(NonTerminal X : this.nonTerminaux)

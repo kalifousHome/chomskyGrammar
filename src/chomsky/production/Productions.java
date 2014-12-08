@@ -83,17 +83,18 @@ public class Productions {
 	 *         otherwise
 	 */
 	public boolean contains(NonTerminal t, Symbol f) {
-
-		try {
-			for (NonTerminal tmp : this.productions
-					.get(new SymbolProduction(f))) {
-				if (tmp != null) {
-					if (tmp.equals(t))
-						return true;
-				} else if (tmp == null)
-					return false;
+		if (t != null && f != null) {
+			try {
+				for (NonTerminal tmp : this.productions
+						.get(new SymbolProduction(f))) {
+					if (tmp != null) {
+						if (tmp.equals(t))
+							return true;
+					} else if (tmp == null)
+						return false;
+				}
+			} catch (NullPointerException e) {
 			}
-		} catch (NullPointerException e) {
 		}
 		return false;
 	}
@@ -112,13 +113,15 @@ public class Productions {
 	 *         otherwise
 	 */
 	public boolean contains(NonTerminal t, NonTerminal t1, NonTerminal t2) {
-		try {
-			for (NonTerminal tmp : this.productions
-					.get(new NonTerminalProduction(t1, t2))) {
-				if (tmp.equals(t))
-					return true;
+		if (t != null & t1 != null && t2 != null) {
+			try {
+				for (NonTerminal tmp : this.productions
+						.get(new NonTerminalProduction(t1, t2))) {
+					if (tmp.equals(t))
+						return true;
+				}
+			} catch (NullPointerException e) {
 			}
-		} catch (NullPointerException e) {
 		}
 		return false;
 	}
@@ -190,6 +193,31 @@ public class Productions {
 					tmp.addAll(this.get(X, Y));
 
 		return tmp;
+	}
+
+	/**
+	 * Indicates whether some other object is "equal to" this one
+	 * 
+	 * @param obj
+	 *            the reference object with which to compare
+	 * 
+	 * @return true if this object is the same as the obj argument, false
+	 *         otherwise
+	 */
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Productions other = (Productions) obj;
+		if (productions == null) {
+			if (other.productions != null)
+				return false;
+		} else if (!productions.equals(other.productions))
+			return false;
+		return true;
 	}
 
 }

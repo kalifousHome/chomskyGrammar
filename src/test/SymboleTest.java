@@ -30,9 +30,9 @@ public class SymboleTest {
 		
 		assertEquals(s1,s1);
 		assertEquals(s1,s12);
-		assertNotEquals(s1,null);
-		assertNotEquals(s1,new NonTerminal("non_terminal"));
-		assertNotEquals(s1,s2);
+		assertFalse(s1.equals(null));
+		assertFalse(s1.equals(new NonTerminal("non_terminal")));
+		assertFalse(s1.equals(s2));
 	
 	}@Test
 	public void tostring() {

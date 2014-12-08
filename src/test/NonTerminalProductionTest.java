@@ -48,12 +48,12 @@ public class NonTerminalProductionTest {
 		
 		assertEquals(n,n);
 		assertEquals(n,n2);
-		assertNotEquals(n,null);
-		assertNotEquals(n2,null);
-		assertNotEquals(n,non1);
-		assertNotEquals(n2,non1);
-		assertNotEquals(n3,n4);
-		assertNotEquals(n5,n6);
+		assertFalse(n.equals(null));
+		assertFalse(n2.equals(null));
+		assertFalse(n.equals(non1));
+		assertFalse(n2.equals(non1));
+		assertFalse(n3.equals(n4));
+		assertFalse(n5.equals(n6));
 		
 
 	}@Test

@@ -16,19 +16,17 @@ public class EnsembleDeCellulesTest {
 	@Test
 	public void add() {
 		
-		int i=1,l=1;
 		NonTerminal n = new NonTerminal("RENE");
-		CellArray e= new CellArray (l,  i);
+		CellArray e= new CellArray (1,  1);
 	
-		assertFalse(e.contains(0, 0, n));
-		e.add(l-1, i-1, n);
-		assertTrue(e.contains(0,0, n));
+		assertFalse(e.contains(1, 1, n));
+		e.add(1, 1, n);
+		assertTrue(e.contains(1,1, n));
 		
 	}	
 	@Test
 	public void addAll() {
 		
-		int i=1,l=1;
 		NonTerminal a = new NonTerminal("AAAA");
 		NonTerminal b = new NonTerminal("BBBB");
 		NonTerminal c = new NonTerminal("CCCC");
@@ -37,17 +35,16 @@ public class EnsembleDeCellulesTest {
 		set.add(b);
 		set.add(c);
 		
-		CellArray e= new CellArray (l,  i);
+		CellArray e= new CellArray (1,  1);
 	
-		assertFalse(e.containsAll(0, 0,set));
-		e.addAll(l-1, i-1, set);
-		assertTrue(e.containsAll(0,0, set));
+		assertFalse(e.containsAll(1, 1,set));
+		e.addAll(1, 1, set);
+		assertTrue(e.containsAll(1, 1, set));
 		
 	}
 	@Test
 	public void getNonTerminaux(){
 		
-		int i=1,l=1;
 		NonTerminal a = new NonTerminal("AAAA");
 		NonTerminal b = new NonTerminal("BBBB");
 		NonTerminal c = new NonTerminal("CCCC");
@@ -56,9 +53,9 @@ public class EnsembleDeCellulesTest {
 		set.add(b);
 		set.add(c);
 		
-		CellArray e= new CellArray (l,  i);
-		e.addAll(l-1, i-1, set);
-		assertTrue(set.containsAll( e.getNonTerminaux(0, 0)));
+		CellArray e= new CellArray (1,  1);
+		e.addAll(1, 1, set);
+		assertTrue(set.containsAll( e.getNonTerminaux(1, 1)));
 		
 	}
 	

@@ -74,4 +74,30 @@ public class Alphabet {
 
 		return symboles.contains(s);
 	}
+
+	/**
+	 * Indicates whether some other object is "equal to" this one
+	 * 
+	 * @param obj
+	 *            the reference object with which to compare
+	 * 
+	 * @return true if this object is the same as the obj argument, false
+	 *         otherwise
+	 */
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Alphabet other = (Alphabet) obj;
+		if (symboles == null) {
+			if (other.symboles != null)
+				return false;
+		} else if (!symboles.equals(other.symboles))
+			return false;
+		return true;
+	}
+
 }

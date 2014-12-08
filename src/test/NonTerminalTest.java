@@ -30,12 +30,12 @@ public class NonTerminalTest {
 		
 		assertEquals(n1,n1);
 		assertEquals(n1,n12);
-		assertNotEquals(n12,n2);
-		assertNotEquals(n1,n2);
-		assertNotEquals(n1,null);
-		assertNotEquals(n3,n1);
-		assertNotEquals(n3,new NonTerminal("not_null"));
+		assertFalse(n12.equals(n2));
+		assertFalse(n1.equals(n2));
+		assertFalse(n1.equals(null));
+		assertFalse(n3.equals(n1));
+		assertFalse(n3.equals(new NonTerminal("not_null")));
 		
-		assertNotEquals(n1,s);
+		assertFalse(n1.equals(s));
 	}
 }

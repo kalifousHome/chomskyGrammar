@@ -10,10 +10,6 @@ import chomsky.production.SymbolProduction;
 
 public class SymboleProductionTest {
 	
-	@Test(expected = IllegalArgumentException.class)
-	public void constr() {
-		SymbolProduction ps = new SymbolProduction(null);
-	}
 	@Test
 	public void contains(){
 		Symbol s = new Symbol('s');
@@ -32,9 +28,9 @@ public class SymboleProductionTest {
 		
 		assertEquals(ps,ps);
 		assertEquals(ps,ps12);
-		assertNotEquals(ps,null);
-		assertNotEquals(ps,ps2);
-		assertNotEquals(ps,s);
+		assertFalse(ps.equals(null));
+		assertFalse(ps.equals(ps2));
+		assertFalse(ps.equals(s));
 		
 	}@Test
 	public void tostring(){

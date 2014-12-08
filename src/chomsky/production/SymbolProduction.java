@@ -3,31 +3,26 @@ package chomsky.production;
 import chomsky.components.NonTerminal;
 import chomsky.components.Symbol;
 
+
 /**
- * Class that represents the right part of a NT -> NT NT production
+ * Class that represents the right part of a NT -> F production
  */
+public class SymbolProduction implements Production{
 
-public class NonTerminalProduction implements Production {
-
-	protected NonTerminal t1;
-	protected NonTerminal t2;
+	protected Symbol symbole;
 
 	/**
-	 * Create the right part NT -> t1 t2
+	 * Create the right part NT -> F
 	 * 
-	 * @param t1
-	 *            the first non terminal symbol
-	 * @param t2
-	 *            the second non terminal symbol
+	 * @param symbol
+	 *            the symbol
 	 * @throws IllegalArgumentException
 	 *             throws if one of non terminal symbol is null
 	 */
-	public NonTerminalProduction(NonTerminal t1, NonTerminal t2)
-			throws IllegalArgumentException {
-		if (t1 == null || t2 == null)
-			throw (new IllegalArgumentException());
-		this.t1 = t1;
-		this.t2 = t2;
+	public SymbolProduction(Symbol symbol) throws IllegalArgumentException{
+		if(symbol==null)
+			throw(new IllegalArgumentException());
+		this.symbole = symbol;
 	}
 
 	/**
@@ -39,8 +34,8 @@ public class NonTerminalProduction implements Production {
 	 * @return true if the right part of the production is the symbol, otherwise
 	 *         false
 	 */
-	public boolean contains(Symbol symbole) {
-		return false;
+	public boolean contains(Symbol symbole){
+		return this.symbole.equals(symbole);
 	}
 
 	/**
@@ -53,8 +48,8 @@ public class NonTerminalProduction implements Production {
 	 * @return true if the right part of the production is t1 t2, otherwise
 	 *         false
 	 */
-	public boolean contains(NonTerminal t1, NonTerminal t2) {
-		return this.t1.equals(t1) && this.t2.equals(t2);
+	public boolean contains(NonTerminal t1, NonTerminal t2){
+		return false;
 	}
 
 	/**
@@ -62,8 +57,8 @@ public class NonTerminalProduction implements Production {
 	 * 
 	 * @return the string representation of the production
 	 */
-	public String toString() {
-		return "-> " + t1.toString() + t2.toString();
+	public String toString(){
+		return "-> "+this.symbole.toString();
 	}
 
 	/**
@@ -74,8 +69,7 @@ public class NonTerminalProduction implements Production {
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + ((t1 == null) ? 0 : t1.hashCode());
-		result = prime * result + ((t2 == null) ? 0 : t2.hashCode());
+		result = prime * result + ((symbole == null) ? 0 : symbole.hashCode());
 		return result;
 	}
 
@@ -95,12 +89,10 @@ public class NonTerminalProduction implements Production {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		NonTerminalProduction other = (NonTerminalProduction) obj;
-		if (!t1.equals(other.t1))
-			return false;
-		else if (!t2.equals(other.t2))
+		SymbolProduction other = (SymbolProduction) obj;
+		 if (!symbole.equals(other.symbole))
 			return false;
 		return true;
 	}
-
+	
 }

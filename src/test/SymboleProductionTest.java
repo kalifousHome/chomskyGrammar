@@ -6,18 +6,18 @@ import org.junit.Test;
 
 import chomsky.components.NonTerminal;
 import chomsky.components.Symbol;
-import chomsky.production.SymboleProduction;
+import chomsky.production.SymbolProduction;
 
 public class SymboleProductionTest {
 	
 	@Test(expected = IllegalArgumentException.class)
 	public void constr() {
-		SymboleProduction ps = new SymboleProduction(null);
+		SymbolProduction ps = new SymbolProduction(null);
 	}
 	@Test
 	public void contains(){
 		Symbol s = new Symbol('s');
-		SymboleProduction ps = new SymboleProduction(s);
+		SymbolProduction ps = new SymbolProduction(s);
 		assertTrue(ps.contains(s));
 		assertFalse( ps.contains(new NonTerminal("a") ,new NonTerminal("b") ) );
 		
@@ -26,9 +26,9 @@ public class SymboleProductionTest {
 	public void equals(){
 		Symbol s = new Symbol('s');
 		Symbol s2 = new Symbol('p');
-		SymboleProduction ps = new SymboleProduction(s);
-		SymboleProduction ps2 = new SymboleProduction(s2);
-		SymboleProduction ps12 = new SymboleProduction(s);
+		SymbolProduction ps = new SymbolProduction(s);
+		SymbolProduction ps2 = new SymbolProduction(s2);
+		SymbolProduction ps12 = new SymbolProduction(s);
 		
 		assertEquals(ps,ps);
 		assertEquals(ps,ps12);
@@ -39,7 +39,7 @@ public class SymboleProductionTest {
 	}@Test
 	public void tostring(){
 		Symbol s = new Symbol('s');
-		SymboleProduction ps = new SymboleProduction(s);
+		SymbolProduction ps = new SymbolProduction(s);
 		
 		assertEquals(ps.toString(),"-> "+s.toString());
 		

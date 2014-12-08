@@ -1,4 +1,4 @@
-package test;
+package chomsky.cellule;
 
 import static org.junit.Assert.*;
 

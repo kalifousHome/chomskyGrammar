@@ -1,4 +1,4 @@
-package test;
+package chomsky.production;
 
 import static org.junit.Assert.*;
 

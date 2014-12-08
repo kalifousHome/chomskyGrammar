@@ -1,4 +1,4 @@
-package test;
+package chomsky.components;
 
 import static org.junit.Assert.*;
 

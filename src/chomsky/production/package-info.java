@@ -1,5 +1,5 @@
 /**
- * Classes that represents the production of a chomsky grammar.
+ * classes that represents the production of a chomsky grammar.
  * 
  * The classes that inherits Production class represent the right part of a production.
  * 

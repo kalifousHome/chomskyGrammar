@@ -1,56 +1,42 @@
 package chomsky;
 
-import java.util.HashSet;
-import java.util.Set;
-
-import chomsky.components.Alphabet;
 import chomsky.components.NonTerminal;
 import chomsky.components.Symbol;
-import chomsky.production.Productions;
 
 public class Main {
 
 	public static void main(String[] args) {
-		
+
 		Symbol a = new Symbol('a');
 		Symbol b = new Symbol('b');
-		
-		Set<Symbol> set = new HashSet<Symbol>();
-		set.add(a);
-		set.add(b);	
-		Alphabet alpha = new Alphabet(set);
-		
+
 		NonTerminal S = new NonTerminal("S");
 		NonTerminal A = new NonTerminal("A");
 		NonTerminal B = new NonTerminal("B");
-		NonTerminal C = new NonTerminal("C");
-		
-		Set<NonTerminal> nonTerminaux = new HashSet<NonTerminal>();
-		nonTerminaux.add(S);
-		nonTerminaux.add(A);
-		nonTerminaux.add(B);
-		nonTerminaux.add(C);
-		
-		Productions productions = new Productions();
-		productions.add(A, a);
-		productions.add(A, C, C);
-		productions.add(A, A, B);
-		
-		productions.add(B, b);
-		productions.add(B, B, B);
-		productions.add(B, C, A);
-		
-		productions.add(C, b);
-		productions.add(C, B, A);
-		productions.add(C, A, A);
-		
-		productions.add(S, A, B);
-		productions.add(S, B, B);
-		
-		
-		ChomskyGrammar cg = new ChomskyGrammar(alpha, productions, nonTerminaux, S);
-		
-		System.out.println(cg.accept("baba"));
+
+		ChomskyGrammar cg = new ChomskyGrammar();
+
+		cg.addSymbolToAlphabet(a);
+		cg.addSymbolToAlphabet(b);
+
+		cg.addNonTerminalSymbol(A);
+		cg.addNonTerminalSymbol(B);
+
+		cg.setAxiom(S);
+
+		cg.addProduction(A, a);
+		cg.addProduction(A, S, S);
+		cg.addProduction(B, b);
+		cg.addProduction(B, S, S);
+		cg.addProduction(S, A, A);
+		cg.addProduction(S, B, B);
+
+		System.out.println("false = "+cg.accept("baba"));
+		System.out.println("true = "+cg.accept("aa"));
+		System.out.println("true = "+cg.accept("bb"));
+		System.out.println("true = "+cg.accept("aabbaabb"));
+		System.out.println("false = "+cg.accept("aabbaa"));
+		System.out.println("false = "+cg.accept("aabbaabbbb"));
 	}
 
 }

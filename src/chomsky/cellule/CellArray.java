@@ -6,6 +6,7 @@ import chomsky.components.NonTerminal;
 
 /**
  * Class that represents the array used by the CYK algorithm
+ * This class manage the difference of the indices between algorithm and java array
  */
 
 public class CellArray {
@@ -40,7 +41,7 @@ public class CellArray {
 	 *            the non terminal symbol to add
 	 */
 	public void add(int l, int i, NonTerminal n) {
-		tableauDeuxCellules[l][i].add(n);
+		tableauDeuxCellules[l-1][i-1].add(n);
 	}
 
 	/**
@@ -54,7 +55,7 @@ public class CellArray {
 	 *            the set of non terminal symbol to add
 	 */
 	public void addAll(int l, int i, Set<NonTerminal> n) {
-		tableauDeuxCellules[l][i].addAll(n);
+		tableauDeuxCellules[l-1][i-1].addAll(n);
 	}
 
 	/**
@@ -70,7 +71,7 @@ public class CellArray {
 	 * @return true if and only if the cell contains the non terminal symbol
 	 */
 	public boolean contains(int l, int i, NonTerminal n) {
-		return tableauDeuxCellules[l][i].contains(n);
+		return tableauDeuxCellules[l-1][i-1].contains(n);
 	}
 
 	/**
@@ -87,7 +88,7 @@ public class CellArray {
 	 *         of the set
 	 */
 	public boolean containsAll(int l, int i, Set<NonTerminal> n) {
-		return tableauDeuxCellules[l][i].containsAll(n);
+		return tableauDeuxCellules[l-1][i-1].containsAll(n);
 	}
 
 	/**
@@ -100,7 +101,7 @@ public class CellArray {
 	 * @return the set of all the symbols contained by the cell[l][i]
 	 */
 	public Set<NonTerminal> getNonTerminaux(int l, int i) {
-		return this.tableauDeuxCellules[l][i].getNonTerminaux();
+		return this.tableauDeuxCellules[l-1][i-1].getNonTerminaux();
 	}
 
 }
